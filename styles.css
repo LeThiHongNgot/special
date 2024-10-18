@@ -1,0 +1,85 @@
+
+body {
+    font-family: "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffffff;
+    overflow: hidden; /* Ẩn thanh cuộn */
+    flex-direction: column; /* Xếp theo chiều dọc */
+}
+
+.card {
+    position: relative;
+    width: 800px;
+    height: 450px;
+    background-image: url("bg.jpg"); /* Đường dẫn ảnh nền thiệp */
+    background-size: cover;
+    background-position: center;
+    border-radius: 2px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Ẩn khung thiệp lúc đầu */
+    transition: opacity 2s ease; /* Hiệu ứng mờ dần */
+    z-index: 1; /* Đặt khung lên trên hoa */
+}
+
+.message {
+    font-size: 15px;
+    color: #5c5f7b;
+    font-weight: bold;
+    padding: 20px;
+    margin-top: 10px;
+    margin-left: 150px;
+    border-radius: 10px;
+    width: 50%;
+    text-align: center;
+    line-height: 1.5; /* Tăng khoảng cách giữa các dòng */
+    white-space: pre-wrap; /* Giữ khoảng trắng và xuống dòng theo đúng văn bản */
+}
+
+.flower {
+    position: absolute;
+    width: 490px; /* Kích thước bông hoa hình sao */
+    height: 490px;
+    background-color: rgb(166, 162, 163); /* Màu sắc bông hoa */
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); /* Hình sao */
+    opacity: 0; /* Ẩn bông hoa lúc đầu */
+    transition: opacity 2s; /* Hiệu ứng mờ dần */
+}
+
+.bubble {
+    position: absolute;
+    width: 15px; /* Kích thước bong bóng */
+    height: 15px;
+    background-color: rgba(255, 192, 203, 0.7); /* Màu sắc bong bóng */
+    border-radius: 50%; /* Tạo hình tròn cho bong bóng */
+    opacity: 0.8; /* Độ mờ của bong bóng */
+    animation: float linear infinite; /* Chạy liên tục */
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0); /* Bắt đầu từ vị trí gốc */
+    }
+    100% {
+        transform: translateY(100vh); /* Kết thúc ở đáy */
+    }
+}
+
+.start-button {
+    padding: 10px 20px;
+    font-size: 20px;
+    color: #fff;
+    background-color: #798be5;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px; /* Khoảng cách dưới nút */
+}
+
