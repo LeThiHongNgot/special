@@ -1,9 +1,10 @@
 
-const messageText = `Hi Cô (Thư Lương),
-Là em N đây...
-Nhân ngày 20/10, em xin chúc cô luôn mạnh khỏe, hạnh phúc và thành công trong sự nghiệp trồng người.
-Chúc cô giáo của em luôn giữ vững niềm đam mê và nhiệt huyết với nghề.
-Em biết ơn những bài học quý giá cô đã mang đến và luôn truyền cảm hứng cho em.`;
+const messageText = `Hi Ms. Thư Lương,
+It’s N here
+On this occasion of October 20th, 
+I wish you always good health, happiness, and success in your teaching career.
+I hope my teacher continues to hold onto the passion and dedication for the profession.
+ I am grateful for the valuable lessons you have given me and for always inspiring me.`;
 
 let index = 0;
 const speed = 100; // Tốc độ xuất hiện mỗi chữ (milisecond)
@@ -47,7 +48,7 @@ function startEffect() {
         document.getElementById("card").style.opacity = 1; // Hiện khung thiệp sau 1 giây
         typeWriter(); // Bắt đầu gõ chữ
         startBubbles(); // Bắt đầu hiệu ứng bong bóng
-    }, 1000); // Đợi 1 giây sau khi bông hoa xuất hiện
+    }, 800); // Đợi 1 giây sau khi bông hoa xuất hiện
     document.getElementById("startButton").style.display = 'none'; // Ẩn nút sau khi nhấn
 }
 

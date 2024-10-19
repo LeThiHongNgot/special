@@ -7,16 +7,17 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #ffffff;
+    background-color: #ffffff5c;
     overflow: hidden; /* Ẩn thanh cuộn */
     flex-direction: column; /* Xếp theo chiều dọc */
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.8); /* Tạo hiệu ứng bóng sáng */
 }
 
 .card {
     position: relative;
-    width: 800px;
-    height: 450px;
-    background-image: url("bg.jpg"); /* Đường dẫn ảnh nền thiệp */
+    width: 650px; /* Kích thước bông hoa hình sao */
+    height: 355px;
+    background-image: url("bgr.png"); /* Đường dẫn ảnh nền thiệp */
     background-size: cover;
     background-position: center;
     border-radius: 2px;
@@ -30,12 +31,12 @@ body {
 }
 
 .message {
-    font-size: 15px;
-    color: #5c5f7b;
+    font-size: 12px;
+    color: #2c2424;
     font-weight: bold;
     padding: 20px;
-    margin-top: 10px;
-    margin-left: 150px;
+    margin-top: 50px;
+    margin-left: 200px;
     border-radius: 10px;
     width: 50%;
     text-align: center;
@@ -45,9 +46,9 @@ body {
 
 .flower {
     position: absolute;
-    width: 490px; /* Kích thước bông hoa hình sao */
-    height: 490px;
-    background-color: rgb(166, 162, 163); /* Màu sắc bông hoa */
+    width: 200px; /* Kích thước bông hoa hình sao */
+    height: 200px;
+    background-color: rgb(247, 211, 35); /* Màu sắc bông hoa */
     clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); /* Hình sao */
     opacity: 0; /* Ẩn bông hoa lúc đầu */
     transition: opacity 2s; /* Hiệu ứng mờ dần */
@@ -57,7 +58,7 @@ body {
     position: absolute;
     width: 15px; /* Kích thước bong bóng */
     height: 15px;
-    background-color: rgba(255, 192, 203, 0.7); /* Màu sắc bong bóng */
+    background-color: rgb(255, 192, 203); /* Màu sắc bong bóng */
     border-radius: 50%; /* Tạo hình tròn cho bong bóng */
     opacity: 0.8; /* Độ mờ của bong bóng */
     animation: float linear infinite; /* Chạy liên tục */
@@ -65,7 +66,7 @@ body {
 
 @keyframes float {
     0% {
-        transform: translateY(0); /* Bắt đầu từ vị trí gốc */
+        transform: translateY(-100vh); /* Bắt đầu từ vị trí gốc */
     }
     100% {
         transform: translateY(100vh); /* Kết thúc ở đáy */
@@ -73,13 +74,90 @@ body {
 }
 
 .start-button {
-    padding: 10px 20px;
-    font-size: 20px;
-    color: #fff;
-    background-color: #798be5;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: #e74c3c;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-bottom: 20px; /* Khoảng cách dưới nút */
+    margin-top: 100px;
+    transition: all 0.3s ease;
+    overflow: hidden;
 }
 
+.start-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: translateX(-50%);
+}
+
+.start-button::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: #c0392b;
+    transform: translateY(-50%);
+}
+
+.start-button .ribbon {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: #f1c40f;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.start-button .ribbon::before,
+.start-button .ribbon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 10px;
+    background-color: #f1c40f;
+}
+
+.start-button .ribbon::before {
+    left: 50%;
+    transform: translateX(-100%) translateY(-50%) rotate(-45deg);
+}
+
+.start-button .ribbon::after {
+    right: 50%;
+    transform: translateX(100%) translateY(-50%) rotate(45deg);
+}
+
+.start-button:hover {
+    transform: scale(1.05);
+}
+
+.start-button:hover .ribbon {
+    animation: bounce 0.5s ease infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.1); }
+}
+
+.start-button span {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
